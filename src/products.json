@@ -6,7 +6,7 @@
     "talle":"M",
     "Categoria":"Hombre",
     "img":"/assets/C1.jpg",
-    "CategoriaId": 1},
+    "CategoriaId": 1.1},
 
     {"id": 2, 
     "nombre":"CamisetaSuplente",
@@ -15,7 +15,7 @@
     "talle":"M",
     "Categoria":"Hombre",
     "img":"/assets/C2.jpg",
-    "CategoriaId": 1},
+    "CategoriaId": 1.1},
 
     {"id": 3, 
     "nombre":"ShortTitular",
@@ -24,7 +24,7 @@
     "talle":"L",
     "Categoria":"Mujer",
     "img":"/assets/SH1.jpg",
-    "CategoriaId": 2},
+    "CategoriaId": 2.1},
 
     {"id": 4, 
     "nombre":"ShortNiño",
@@ -33,7 +33,7 @@
     "talle":"XS",
     "Categoria":"Niño",
     "img":"/assets/SHN1.jpg",
-    "CategoriaId": 3},
+    "CategoriaId": 3.1},
 
     {"id": 5, 
     "nombre":"BuzoTitular",
@@ -42,7 +42,7 @@
     "talle":"S",
     "Categoria":"Hombre",
     "img":"/assets/B1.jpg",
-    "CategoriaId": 1},
+    "CategoriaId": 1.1},
 
     {"id": 6, 
     "nombre":"CamisetaNiñoTercera",
@@ -51,5 +51,5 @@
     "talle":"S",
     "Categoria":"Niños",
     "img":"/assets/CN3.jpg",
-    "CategoriaId": 3}
+    "CategoriaId": 3.1}
     ]

@@ -7,7 +7,7 @@ const NavBar =()=>{
       <header>
         <nav>
             <img src="/StockAssets/logo.png" alt="logo" />
-            <h2>Pixeles-Gamestore</h2>
+            <h2>BocaStore</h2>
             <CartWidget/>
 
              <ul>

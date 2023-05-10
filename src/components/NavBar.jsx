@@ -1,18 +1,24 @@
 import React from "react";
 import CartWidget from "./CartWidget";
+import { NavLink,Link } from "react-router-dom";
 const NavBar =()=>{
+  const categorias =[{CategoriaId:1,},{CategoriaId:2},{CategoriaId:3}]
     return (
       <header>
         <nav>
-            <img src="" alt="logo" />
-            <h2>BocaStore</h2>
+            <img src="/StockAssets/logo.png" alt="logo" />
+            <h2>Pixeles-Gamestore</h2>
             <CartWidget/>
-            <ul>
-                <li><a href="#">Hombre</a></li>
-                <li><a href="#">Mujer</a></li>
-                <li><a href="#">Niños</a></li>
-                <li><a href="#">Nosotros</a></li>
-            </ul>
+
+             <ul>
+              {categorias.map((categoria)=>(
+                <li key={categoria.idCategoria}>
+                  <Link to={`category/${categoria.idCategoria}`}>{categoria.nombreCategoria}</Link>
+                </li>
+              ))}
+             </ul>
+
+
         </nav>
       </header>
     )

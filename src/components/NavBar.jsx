@@ -1,19 +1,27 @@
 import React from "react";
 import CartWidget from "./CartWidget";
-import { NavLink,Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
+import { StyleBanner, StyleNavBar } from "../container/Styles";
 const NavBar =()=>{
-  const categorias =[{CategoriaId:1,},{CategoriaId:2},{CategoriaId:3}]
+  const categorias =[{CategoriaId:1, nombreCategoria:"Hombre"},{CategoriaId:2, nombreCategoria:"Mujer"},{CategoriaId:3, nombreCategoria: "Niños"}]
     return (
       <header>
-        <nav>
-            <img src="/StockAssets/logo.png" alt="logo" />
-            <h2>BocaStore</h2>
+        <nav style={{backgroundColor:"rgb(1,1,39)"}}>
+
+
+            <img style={StyleBanner} src="/assets/Banner.jpg" alt="logo" />
+
+
+            <h2 style={{color:"blue", fontSize:"45px"}}>Boca <span style={{color:"yellow"}}>Store</span> </h2>
             <CartWidget/>
 
-             <ul>
+             <ul style={StyleNavBar}>
+              <li   key="Inicio">
+                <Link to={`/`} >Inicio</Link>
+              </li>
               {categorias.map((categoria)=>(
-                <li key={categoria.idCategoria}>
-                  <Link to={`category/${categoria.idCategoria}`}>{categoria.nombreCategoria}</Link>
+                <li  key={categoria.CategoriaId}>
+                  <Link to={`category/${categoria.CategoriaId}`}>{categoria.nombreCategoria}</Link>
                 </li>
               ))}
              </ul>

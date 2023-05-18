@@ -1,22 +1,25 @@
 import React from "react";
 import products from '../products.json' ;
-import { Links, NavLink, useParams} from "react-router-dom";
+import { NavLink, useParams} from "react-router-dom";
+import { StyleButton, StylesImg, Stylesdetail } from "./Styles";
 
 
 const ItemCategoryContainer =()=>{
-    const {idCategoria}=useParams();
-    console.log(idCategoria);
+    const {CategoriaId}=useParams();
+    console.log(CategoriaId);
     const itemsFiltrados=products.filter((item)=>item.CategoriaId==CategoriaId);
+    console.log(itemsFiltrados);
     return (
             <>
                  {
                 itemsFiltrados.map((product)=>(
-                    <div key={product.id}>
+                    <div style={Stylesdetail} key={product.id}>
                         <h4 >{product.nombre}</h4>
-                        <img  src={product.img} alt="" />
+                        <img style={StylesImg} src={product.img} alt="" />
                         <h4 >{product.precio}</h4>
 
-                        <NavLink to={`/items/${product.id}`}><button >Muestrame mas</button></NavLink>
+                        <NavLink to={`/items/${product.id}`}><button style={StyleButton} >Mostrar Mas</button></NavLink>
+                        <p style={{color:"black"}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, fugiat.</p>
                     </div>
                 ))}
             </>

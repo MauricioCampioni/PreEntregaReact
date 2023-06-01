@@ -4,9 +4,11 @@
     "precio":"$15000",
     "color":"Azul y amarillo",
     "talle":"M",
-    "Categoria":"Hombre",
+    "Category":"Hombre",
     "img":"/assets/C1.jpg",
-    "CategoriaId": 1},
+    "CategoryId": 1,
+    "stock": 10
+},
 
     {"id": 2, 
     "nombre":"CamisetaSuplente",
@@ -15,7 +17,9 @@
     "talle":"M",
     "Categoria":"Hombre",
     "img":"/assets/C2.jpg",
-    "CategoriaId": 1},
+    "CategoryId": 1,
+    "stock": 10
+},
 
     {"id": 3, 
     "nombre":"ShortTitular",
@@ -24,16 +28,20 @@
     "talle":"L",
     "Categoria":"Mujer",
     "img":"/assets/SH1.jpg",
-    "CategoriaId": 2},
+    "CategoryId": 2,
+    "stock": 10
+},
 
     {"id": 4, 
     "nombre":"ShortNiño",
     "precio":"$6500",
     "color":"Azul y Amarillo",
     "talle":"XS",
-    "Categoria":"Niño",
+    "CategoryId":"Niño",
     "img":"/assets/SHN1.jpg",
-    "CategoriaId": 3},
+    "CategoriaId": 3,
+    "stock": 10
+},
 
     {"id": 5, 
     "nombre":"BuzoTitular",
@@ -42,7 +50,9 @@
     "talle":"S",
     "Categoria":"Hombre",
     "img":"/assets/B1.jpg",
-    "CategoriaId": 1},
+    "CategoryId": 1,
+    "stock": 10
+},
 
     {"id": 6, 
     "nombre":"CamisetaNiñoTercera",
@@ -51,5 +61,7 @@
     "talle":"S",
     "Categoria":"Niños",
     "img":"/assets/CN3.jpg",
-    "CategoriaId": 3}
+    "CategoryId": 3,
+    "stock": 10
+}
     ]

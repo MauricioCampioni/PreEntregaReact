@@ -1,15 +1,39 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import products from '../products.json' ;
 import { NavLink, useParams} from "react-router-dom";
 import { StyleButton, StylesImg, Stylesdetail } from "./Styles";
 
 
+
 const ItemCategoryContainer =()=>{
-    const {CategoriaId}=useParams();
-    console.log(CategoriaId);
-    const itemsFiltrados=products.filter((item)=>item.CategoriaId==CategoriaId);
-    console.log(itemsFiltrados);
+    const {CategoryId}=useParams();
+    
+
+    const [productsStock,setProductsStock]=useState([]);
+    const [loading,setLoading]= useState(true);
+
+
+    useEffect(()=>{
+        setLoading(true)
+        
+        const productList=new Promise ((resolve,reject)=>{
+           setTimeout(()=>{
+            resolve(products)
+           },2000) 
+        })
+        productList.then(result =>{
+            setProductsStock(result);
+            setLoading(false);
+            console.log(productsStock)
+        });
+    },CategoryId);
+    const itemsFiltrados=productsStock.filter((item)=>item.CategoryId==CategoryId);
+
+
     return (
+        <div>
+            {loading ? 
+            <h4>Cargando...</h4> :
             <>
                  {
                 itemsFiltrados.map((product)=>(
@@ -22,8 +46,9 @@ const ItemCategoryContainer =()=>{
                         <p style={{color:"black"}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, fugiat.</p>
                     </div>
                 ))}
-            </>
-
+                
+            </>}
+            </div>
 
 
     )

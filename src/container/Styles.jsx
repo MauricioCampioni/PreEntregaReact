@@ -1,7 +1,6 @@
 import '@fontsource/roboto';
 
 
-
 const Stylesdetail = {
     fontSize: "20px",
     color: "blue",
@@ -12,8 +11,12 @@ const StylesImg = {
     transition: "all 500ms",
     width: "350px",
     height: "380px",
-}
+    "&:hover":{
+        transform: "scale(1.1)",
+    },
+};
    
+
 
 const StyleNavBar = {
     fontSize: "20px",

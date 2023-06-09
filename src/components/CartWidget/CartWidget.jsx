@@ -17,7 +17,7 @@ const CartWidget =()=>{
     return (
         <Link to={`/cart`} style={{textDecoration: 'none'}} >
                         <div>
-            <p> 🛒{calculateItems(cartList)}</p>
+            <p> 🛒{calculateItems(cartList)} </p>
             </div>
         </Link>
 

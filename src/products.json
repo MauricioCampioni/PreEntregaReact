@@ -1,7 +1,7 @@
 [
     {"id": 1, 
     "nombre":"CamisetaTitular",
-    "precio":"$15000",
+    "precio":"15000",
     "color":"Azul y amarillo",
     "talle":"M",
     "Category":"Hombre",
@@ -12,7 +12,7 @@
 
     {"id": 2, 
     "nombre":"CamisetaSuplente",
-    "precio":"$15000",
+    "precio":"15000",
     "color":"Amarillo",
     "talle":"M",
     "Categoria":"Hombre",
@@ -23,7 +23,7 @@
 
     {"id": 3, 
     "nombre":"ShortTitular",
-    "precio":"$9500",
+    "precio":"9500",
     "color":"Azul",
     "talle":"L",
     "Categoria":"Mujer",
@@ -34,7 +34,7 @@
 
     {"id": 4, 
     "nombre":"ShortNiño",
-    "precio":"$6500",
+    "precio":"6500",
     "color":"Azul y Amarillo",
     "talle":"XS",
     "CategoryId":"Niño",
@@ -45,7 +45,7 @@
 
     {"id": 5, 
     "nombre":"BuzoTitular",
-    "precio":"$13500",
+    "precio":"13500",
     "color":"Azul",
     "talle":"S",
     "Categoria":"Hombre",
@@ -56,7 +56,7 @@
 
     {"id": 6, 
     "nombre":"CamisetaNiñoTercera",
-    "precio":"$10000",
+    "precio":"10000",
     "color":"Azul",
     "talle":"S",
     "Categoria":"Niños",

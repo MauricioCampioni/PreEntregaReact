@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import products from '../products.json' ;
 import { NavLink } from "react-router-dom";
 import { StyleButton, StylesImg, Stylesdetail } from "./Styles";
+import { db } from '../services/firebase/firebaseConfig';
 
 
 const ItemListContainer =({greeting})=>{

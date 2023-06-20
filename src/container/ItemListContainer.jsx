@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import products from '../products.json' ;
 import { NavLink } from "react-router-dom";
-import { StyleButton, StylesImg, Stylesdetail } from "./Styles";
+import { StyleButton, StylesImg} from "./Styles";
+import {getDocs, collection} from 'firebase/firestore'
 import { db } from '../services/firebase/firebaseConfig';
 
 
@@ -12,15 +12,22 @@ const ItemListContainer =({greeting})=>{
     const [loading,setLoading]= useState(true);
 
     useEffect(()=>{
-        const productList=new Promise ((resolve,reject)=>{
-           setTimeout(()=>{
-            resolve(products)
-           },2000) 
+       const productCollection = collection (db, "items" );
+        getDocs(productCollection)
+        .then (response =>  {
+            const productsAdapted = response.docs.map (doc => {
+                const data = doc.data ()
+                return {id: doc.id, ...data}
+            })
+            setProductsStock(productsAdapted)
         })
-        productList.then(result =>{
-            setProductsStock(result);
-            setLoading(false);
-        });
+        .catch(error => {
+            console.log(error)
+        })
+
+         setTimeout(()=>{
+            setLoading(false)
+           },2000)
     },[]);
 
     return (
@@ -28,10 +35,10 @@ const ItemListContainer =({greeting})=>{
             {loading ? 
             <h4>Cargando...</h4> : 
             <>
-            <h2 style={Stylesdetail}>{greeting}</h2>
+            <h2 >{greeting}</h2>
             <div>
                 {productsStock.map((product)=>(
-                    <div style={Stylesdetail} key={product.id}>
+                    <div  key={product.id}>
                         <h4 >{product.nombre}</h4>
                         <img style={StylesImg} src={product.img} alt="" />
                         <h4 >{product.precio}</h4>

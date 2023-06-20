@@ -1,10 +1,6 @@
 
 
-const Stylesdetail = {
-    fontSize: "20px",
-    color: "blue",
-    fontFamily: "Roboto",
-}
+
 const StylesImg = {
     boxShadow: "3px 2px 5px rgb(9,6,6)",
     transition: "all 500ms",
@@ -38,4 +34,4 @@ const StyleButton = {
 }
 
 
-export {Stylesdetail, StylesImg, StyleNavBar, StyleBanner, StyleButton}
+export {StylesImg, StyleNavBar, StyleBanner, StyleButton}

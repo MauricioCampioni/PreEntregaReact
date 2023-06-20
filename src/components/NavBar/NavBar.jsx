@@ -2,6 +2,7 @@ import React from "react";
 import CartWidget from "../CartWidget/CartWidget";
 import {  Link } from "react-router-dom";
 import { StyleBanner, StyleNavBar } from "../../container/Styles";
+import './StylesNavBar.css'
 const NavBar =()=>{
   const categorias =[{CategoriaId:1, nombreCategoria:"Hombre"},{CategoriaId:2, nombreCategoria:"Mujer"},{CategoriaId:3, nombreCategoria: "Niños"}]
     return (
@@ -21,7 +22,7 @@ const NavBar =()=>{
               </li>
               {categorias.map((categoria)=>(
                 <li  key={categoria.CategoriaId}>
-                  <Link to={`category/${categoria.CategoriaId}`}>{categoria.nombreCategoria}</Link>
+                  <Link to={`category/${categoria.CategoriaId}`}>{categoria.nombreCategoria} </Link>
                 </li>
               ))}
              </ul>

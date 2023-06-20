@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { CartContext } from "../CartContext/CartContext";
 import { NavLink } from "react-router-dom";
+import AddItemButton from "../Cart/AddItemButton/AddItemButton";
 
 
 
@@ -14,7 +15,7 @@ function ItemCount  ({stock, initial, product})  {
     const {addToCart, cartList} = useContext (CartContext)
 
 
-const handlerIncreaseCount = ()=> {
+const handlerIncreaseCount = () => {
     if (stock > counter)  setCounter (counter + 1)
     console.log(counter)
 }
@@ -41,7 +42,7 @@ const handlerAddToCart = (product, stock, counter) => {
                     <button onClick={()=>handlerDecreaseCount()}>-</button>
                 </div>
                 <div>
-                    <button onClick={()=>handlerAddToCart(product, stock, counter)}>Agregar al Carrito</button>
+                    <AddItemButton handlerAddToCart={handlerAddToCart} product={product} stock={stock} counter={counter} />
                 </div>
                 </>
 

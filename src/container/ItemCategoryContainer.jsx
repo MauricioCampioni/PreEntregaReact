@@ -1,33 +1,43 @@
 import React, {useEffect, useState} from "react";
-import products from '../products.json' ;
 import { NavLink, useParams} from "react-router-dom";
-import { StyleButton, StylesImg, Stylesdetail } from "./Styles";
+import { StyleButton, StylesImg} from "./Styles";
+import {getDocs, collection, query, where} from 'firebase/firestore'
+import { db } from "../services/firebase/firebaseConfig";
 
 
 
 const ItemCategoryContainer =()=>{
+
+
     const {CategoryId}=useParams();
     
+    const [filteredProducts,setFilteredProducts]=useState([]);
 
-    const [productsStock,setProductsStock]=useState([]);
     const [loading,setLoading]= useState(true);
+
+     
 
 
     useEffect(()=>{
+
         setLoading(true)
-        
-        const productList=new Promise ((resolve,reject)=>{
-           setTimeout(()=>{
-            resolve(products)
-           },2000) 
-        })
-        productList.then(result =>{
-            setProductsStock(result);
-            setLoading(false);
-            console.log(productsStock)
+
+        const q=query(collection(db,"items"),
+        where("CategoryId","==",parseInt(CategoryId))
+        )
+
+        getDocs(q).then((snapshot)=>{
+            if(snapshot.size===0) console.log("No results")
+            else
+                setFilteredProducts(snapshot.docs.map((doc)=>({id:doc.id,...doc.data()})));
         });
-    },CategoryId);
-    const itemsFiltrados=productsStock.filter((item)=>item.CategoryId==CategoryId);
+
+        setTimeout(()=>{
+            setLoading(false)
+           },2000)
+
+    },[CategoryId]);
+    // const itemsFiltrados=productsStock.filter((item)=>item.CategoryId==CategoryId);
 
 
     return (
@@ -36,8 +46,8 @@ const ItemCategoryContainer =()=>{
             <h4>Cargando...</h4> :
             <>
                  {
-                itemsFiltrados.map((product)=>(
-                    <div style={Stylesdetail} key={product.id}>
+                filteredProducts.map((product)=>(
+                    <div  key={product.id}>
                         <h4 >{product.nombre}</h4>
                         <img style={StylesImg} src={product.img} alt="" />
                         <h4 >{product.precio}</h4>

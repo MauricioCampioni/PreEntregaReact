@@ -1,12 +1,12 @@
-import { useState, useEffect, useContext } from "react"
+import {useContext } from "react"
 import { CartContext } from "../CartContext/CartContext"
-import { Stylesdetail, StylesImg } from "../../container/Styles"
+import { StylesImg } from "../../container/Styles"
 import { Link } from "react-router-dom"
 
 
 
 const Cart = () => {
-    const {cart,removeItem, clearCart, cartList, total} = useContext (CartContext)
+    const {removeItem, clearCart, cartList, total} = useContext (CartContext)
 
     console.log(cartList.length)
     if (cartList.length === 0){
@@ -28,7 +28,7 @@ const Cart = () => {
                     
                     <div 
                     
-                    style={Stylesdetail} key={cartProduct.item.id}>
+                     key={cartProduct.item.id}>
                         
                         <h4 >{cartProduct.item.nombre}</h4>
                         <img  style={StylesImg} src={cartProduct.item.img} alt="" />
@@ -43,7 +43,8 @@ const Cart = () => {
             
             <button onClick={()=> clearCart () }>Vaciar Carrito</button>
             <h4>Total :${total}</h4>
-            <Link to='http://link.mercadopago.com.ar/boocastore'>Terminar compra</Link>
+            <Link to='/Checkout' > <button>Checkout</button> </Link>
+            
         </>
     
     )

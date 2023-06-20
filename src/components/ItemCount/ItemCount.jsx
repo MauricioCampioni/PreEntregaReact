@@ -3,6 +3,7 @@ import { useState } from "react";
 import { CartContext } from "../CartContext/CartContext";
 import { NavLink } from "react-router-dom";
 import AddItemButton from "../Cart/AddItemButton/AddItemButton";
+import ItemQuantitySelector from "../Cart/ItemQuantitySelector/ItemQuantitySelector";
 
 
 
@@ -37,9 +38,7 @@ const handlerAddToCart = (product, stock, counter) => {
             :
                 <>
                 <div>
-                    <button onClick={()=>handlerIncreaseCount()}>+</button>
-                    {counter}
-                    <button onClick={()=>handlerDecreaseCount()}>-</button>
+                    <ItemQuantitySelector handlerIncreaseCount={handlerIncreaseCount} handlerDecreaseCount={handlerDecreaseCount}/>
                 </div>
                 <div>
                     <AddItemButton handlerAddToCart={handlerAddToCart} product={product} stock={stock} counter={counter} />

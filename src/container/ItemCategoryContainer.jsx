@@ -37,7 +37,7 @@ const ItemCategoryContainer =()=>{
            },2000)
 
     },[CategoryId]);
-    // const itemsFiltrados=productsStock.filter((item)=>item.CategoryId==CategoryId);
+    
 
 
     return (

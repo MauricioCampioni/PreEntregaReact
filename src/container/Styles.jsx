@@ -40,5 +40,10 @@ const h4Styles = {
     fontFamily: 'Arial, Helvetica',
     fontSize:'20px'
 }
+const h2Styles = {
+    fontFamily: 'Arial, Helvetica',
+    fontSize:'30px',
+    color: 'blue'
+}
 
-export {StylesImg, StyleNavBar, StyleBanner, StyleButton, h4Styles}
+export {StylesImg, StyleNavBar, StyleBanner, StyleButton, h4Styles, h2Styles}

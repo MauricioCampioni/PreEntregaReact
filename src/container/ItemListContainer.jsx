@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {getDocs, collection} from 'firebase/firestore'
 import { db } from '../services/firebase/firebaseConfig';
 import ItemList from '../components/ItemList/ItemList';
+import { h2Styles } from './Styles';
 
 
 const ItemListContainer =({greeting})=>{
@@ -34,7 +35,7 @@ const ItemListContainer =({greeting})=>{
             {loading ? 
             <h4>Cargando...</h4> : 
             <>
-            <h2 >{greeting}</h2>
+            <h2 style={h2Styles}>{greeting}</h2>
             
             <ItemList productsStock={productsStock} />
     

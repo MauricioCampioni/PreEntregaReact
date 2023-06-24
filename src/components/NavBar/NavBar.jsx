@@ -13,7 +13,7 @@ const NavBar =()=>{
             <img style={StyleBanner} src="/assets/Banner.jpg" alt="logo" />
 
 
-            <h2 style={{color:"blue", fontSize:"45px"}}>Boca <span style={{color:"yellow"}}>Store</span> </h2>
+            <h2 style={{color:"blue", fontSize:"45px", fontFamily:"sans-serif"}}>Boca <span style={{color:"yellow"}}>Store</span> </h2>
             <CartWidget/>
 
              <ul style={StyleNavBar}>

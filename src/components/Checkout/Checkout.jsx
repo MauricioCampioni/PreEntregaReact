@@ -2,7 +2,9 @@ import { useContext, useState } from "react";
 import { db } from "../../services/firebase/firebaseConfig";
 import { Timestamp, addDoc, collection, doc, writeBatch, updateDoc} from "firebase/firestore";
 import { CartContext } from "../CartContext/CartContext";
-import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import CheckoutForm from "./CheckoutForm/CheckoutForm";
+import { checkoutDiv } from "./Checkoutstyle";
+import Brief from "./Brief/Brief";
 
 
 const Checkout =()=>{
@@ -47,7 +49,8 @@ const Checkout =()=>{
     if(orderId){
         return (
             <>
-                {/* <Brief order={objOrder}/> */}
+                {/* {<Brief order={objOrder}/>} */}
+                {<Brief order={objOrder}/>}
                 <div >
                     <h3>TOTAL: ${objOrder.total}</h3>
                     <h3>El id de su orden es: {orderId}</h3>
@@ -56,8 +59,7 @@ const Checkout =()=>{
         )
     }
     return(
-      <div >
-        <h1>Checkout</h1>
+      <div style={checkoutDiv} >
         <CheckoutForm onConfirm={createOrder}/>
       </div>
    )

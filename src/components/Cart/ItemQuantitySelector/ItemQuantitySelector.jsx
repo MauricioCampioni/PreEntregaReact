@@ -1,12 +1,14 @@
+import { ButtonSelectorStyle } from "./ItemQuantitySelectorStyle";
 
-const ItemQuantitySelector= ({handlerIncreaseCount, handlerDecreaseCount, counter, product, stock}) => {
+const ItemQuantitySelector= ({handlerIncreaseCount, handlerDecreaseCount, counter}) => {
 
     return (
 
         <div>
-            <button onClick={()=>handlerDecreaseCount()}>-</button>
-            <button onClick={()=>handlerIncreaseCount()}>+</button>
-            <button onClick={()=>handlerAddToCart(product, stock, counter)}>Agregar al Carrito</button>
+            <button style={ButtonSelectorStyle} onClick={()=>handlerDecreaseCount(counter)}>-</button>
+            {counter}
+            <button style={ButtonSelectorStyle} onClick={()=>handlerIncreaseCount(counter)}>+</button>
+            
         </div>
     )
 }

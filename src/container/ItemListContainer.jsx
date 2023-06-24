@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import { NavLink } from "react-router-dom";
-import { StyleButton, StylesImg} from "./Styles";
 import {getDocs, collection} from 'firebase/firestore'
 import { db } from '../services/firebase/firebaseConfig';
+import ItemList from '../components/ItemList/ItemList';
 
 
 const ItemListContainer =({greeting})=>{
@@ -36,19 +35,9 @@ const ItemListContainer =({greeting})=>{
             <h4>Cargando...</h4> : 
             <>
             <h2 >{greeting}</h2>
-            <div>
-                {productsStock.map((product)=>(
-                    <div  key={product.id}>
-                        <h4 >{product.nombre}</h4>
-                        <img style={StylesImg} src={product.img} alt="" />
-                        <h4 >{product.precio}</h4>
-                        <NavLink to={`/items/${product.id}`}><button style={StyleButton}>Mostrar mas</button></NavLink>
-                        
-                        <p style={{color:"black"}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, fugiat.</p>
-                    </div>
-                ))}
-            </div>
             
+            <ItemList productsStock={productsStock} />
+    
             </>}
 
             

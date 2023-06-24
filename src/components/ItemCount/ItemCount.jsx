@@ -38,7 +38,9 @@ const handlerAddToCart = (product, stock, counter) => {
             :
                 <>
                 <div>
-                    <ItemQuantitySelector handlerIncreaseCount={handlerIncreaseCount} handlerDecreaseCount={handlerDecreaseCount}/>
+                
+                    <ItemQuantitySelector handlerIncreaseCount={handlerIncreaseCount} handlerDecreaseCount={handlerDecreaseCount} counter={counter}  />
+                    
                 </div>
                 <div>
                     <AddItemButton handlerAddToCart={handlerAddToCart} product={product} stock={stock} counter={counter} />

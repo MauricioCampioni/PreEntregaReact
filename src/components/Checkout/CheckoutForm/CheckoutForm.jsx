@@ -1,44 +1,57 @@
 import { useState } from "react"
+import { ButtonSubmitStyle, InputStyle, LabelStyle, divCheckoutForm, divSize, h1CheckoutStyle} from "./CheckoutFormStyle"
 
 const CheckoutForm = ({onConfirm}) => {
     const [name, setName] = useState ('')
     const [phone, setPhone] = useState ('')
     const [email, setEmail] = useState ('')
+    const [loading,setLoading]= useState(true);
 
     const handleConfirm = (event) => {
         event.preventDefault()
-        console.log("ingreso al formulario")
+        
         const userData = {
             name, phone, email
         }
         
         onConfirm (userData)
     }
+    setTimeout(()=>{
+        setLoading(false)
+        
+       },2000)
 
     return(
-        <div>
+        <>
+        {loading ?  
+        <h4>Cargando...</h4> :
+        
+        <>
+        <h1 style={h1CheckoutStyle} >Checkout</h1>
+        <div style={divSize}>
+        <div style={divCheckoutForm}>
             <form onSubmit={handleConfirm}>
-                <label>
+                <label style={LabelStyle}>
                 Nombre:
-                <input
+                <input style={InputStyle}
                 required
                 type='text'
                 value={name}
                 onChange={({target}) => setName (target.value)}
                 />
-                </label>
-                <label>
+                </label >
+                <label style= {LabelStyle}>
                     Telefono:
-                <input
+                <input style={InputStyle}
                 required
                 type='number'
                 value={phone}
                 onChange={({target})=> setPhone (target.value)}
                 />
-                </label>
-                <label>
+                </label >
+                <label style={LabelStyle}>
                     Email:
-                <input
+                <input style={InputStyle}
                 required
                 type='email'
                 value={email}
@@ -47,12 +60,16 @@ const CheckoutForm = ({onConfirm}) => {
                 </label>
 
                 <div>
-                    <button type='submit' >Crear Orden</button>
+                    <button style={ButtonSubmitStyle} type='submit' >Crear Orden</button>
                 </div>
                 </form>
         </div>
+        </div>
+        </>
+        }
+        </>
     )
 }
 
-export default CheckoutForm
+export default CheckoutForm;
 

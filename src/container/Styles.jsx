@@ -28,10 +28,17 @@ const StyleBanner = {
     height: "200px",
 }
 const StyleButton = {
-    listStyle: "none",
-    fontSize:"20px",
-    borderRadius:"5px",
+    padding: '10px 20px',
+    marginTop: '20px',
+    marginBottom:'10px',
+    borderRadius: '4px',
+    fontFamily: 'Arial, Helvetica',
+    fontSize: '20px',
+    cursor: 'pointer'
+}
+const h4Styles = {
+    fontFamily: 'Arial, Helvetica',
+    fontSize:'20px'
 }
 
-
-export {StylesImg, StyleNavBar, StyleBanner, StyleButton}
+export {StylesImg, StyleNavBar, StyleBanner, StyleButton, h4Styles}

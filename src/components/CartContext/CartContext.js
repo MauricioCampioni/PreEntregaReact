@@ -23,7 +23,7 @@ const CartContextProvider = ({children}) => {
               console.log(itemCart.qty)
               console.log(itemCart.item.precio)
               setTotal (updatedTotal)
-              console.log('El total es'+ total)
+        
              } else {
               console.error('El producto ya fue agregado')
              }

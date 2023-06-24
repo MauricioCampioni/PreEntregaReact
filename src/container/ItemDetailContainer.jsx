@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { StylesImg } from "./Styles";
-import ItemCount from "../components/ItemCount/ItemCount";
+
 import {getDoc, doc} from 'firebase/firestore'
 import { db } from "../services/firebase/firebaseConfig";
+import ItemDetail from '../components/ItemDetail/ItemDetail';
 
 
 
@@ -33,7 +33,7 @@ const ItemDetailContainer =()=>{
             
            },2000)
 
-    },[item])
+    },[idItem])
 
     
 
@@ -46,12 +46,9 @@ const ItemDetailContainer =()=>{
             
             <>
                  
-                    {<div  key={item.id}>
-                        <h4 >{item.nombre}</h4>
-                        <img  style={StylesImg} src={item.img} alt="" />
-                        <h4 >{item.precio}</h4>
-                    <ItemCount initial="1" product={item} stock={item.stock}></ItemCount>
-                
+                    {<div> 
+                    <ItemDetail item={item}/>
+                    
                     </div> }
                     
                 

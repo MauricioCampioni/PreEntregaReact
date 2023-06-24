@@ -18,14 +18,23 @@ const NavBar =()=>{
 
              <ul style={StyleNavBar}>
               <li   key="Inicio">
-                <Link to={`/`} >Inicio</Link>
+                
+               <Link to={`/`} >Inicio</Link> 
+                
               </li>
+              
               {categorias.map((categoria)=>(
                 <li  key={categoria.CategoriaId}>
-                  <Link to={`category/${categoria.CategoriaId}`}>{categoria.nombreCategoria} </Link>
+                  
+                  <Link to={`category/${categoria.CategoriaId}`}>{categoria.nombreCategoria} </Link> 
+                  
+                  
+                  
                 </li>
+                
               ))}
              </ul>
+             
         </nav>
       </header>
     )

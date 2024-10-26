@@ -9,16 +9,16 @@ const StylesImg = {
     "&:hover":{
         transform: "scale(1.1)",
     },
-};
+}
    
 
 
 const StyleNavBar = {
     fontSize: "20px",
     display: "flex",
-    textdecoration: 'none',
+    textDecoration: 'none',
     alignItems: "right",
-    justifyContent: "space-around",
+    justifyContent: "space-evenly",
     backgroundColor: "Orange",
     listStyle: "none",
     height: "40px",

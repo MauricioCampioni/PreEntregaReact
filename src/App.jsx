@@ -14,10 +14,15 @@ function App() {
   return (
     <CartContextProvider>
     <div className="App">
+
+      
+
       <BrowserRouter>
-      <NavBar />
+      
+      <NavBar/>
+      
       <Routes>
-          <Route exact path='/' element = {<ItemListContainer greeting={"Bienvenidos a BocaStore"}/>} />
+          <Route exact path='/' element = {<ItemListContainer greeting={""}/>} />
           <Route exact path='/items' element = {<ItemListContainer greeting={"Bienvenidos a BocaStore"}/>} />
           <Route exact path="category/:CategoryId" element={<ItemCategoryContainer/>}/>
           <Route exact path='items/:idItem' element= {<ItemDetailContainer/>}/>

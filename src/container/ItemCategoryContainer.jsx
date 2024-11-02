@@ -8,20 +8,16 @@ import { db } from "../services/firebase/firebaseConfig";
 
 const ItemCategoryContainer =()=>{
 
-
     const {CategoryId}=useParams();
-    
     const [filteredProducts,setFilteredProducts]=useState([]);
-
     const [loading,setLoading]= useState(true);
 
      
 
 
     useEffect(()=>{
-
         setLoading(true)
-
+        
         const q=query(collection(db,"items"),
         where("CategoryId","==",parseInt(CategoryId))
         )
@@ -51,7 +47,6 @@ const ItemCategoryContainer =()=>{
                         <h4 style={h4Styles}>{product.nombre}</h4>
                         <img style={StylesImg} src={product.img} alt="" />
                         <h4 style={h4Styles}>${product.precio}</h4>
-
                         <NavLink to={`/items/${product.id}`}><button style={StyleButton} >Mostrar Mas</button></NavLink>
                         <p style={{color:"black"}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, fugiat.</p>
                     </div>
@@ -59,8 +54,6 @@ const ItemCategoryContainer =()=>{
                 
             </>}
             </div>
-
-
     )
 }
 export default ItemCategoryContainer

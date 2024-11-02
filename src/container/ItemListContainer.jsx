@@ -24,7 +24,6 @@ const ItemListContainer =({greeting})=>{
         .catch(error => {
             console.log(error)
         })
-
          setTimeout(()=>{
             setLoading(false)
            },2000)
@@ -36,12 +35,8 @@ const ItemListContainer =({greeting})=>{
             <h4>Cargando...</h4> : 
             <>
             <h2 style={h2Styles}>{greeting}</h2>
-            
             <ItemList productsStock={productsStock} />
-    
             </>}
-
-            
         </div>
     )
 }

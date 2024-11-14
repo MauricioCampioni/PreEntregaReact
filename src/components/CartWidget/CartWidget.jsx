@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const CartWidget =()=>{
     const { cartList } = useContext(CartContext);
     function calculateItems (cartList) {
-        let totalProducts=0;
+        let totalProducts="";
         cartList.forEach(ItemCart => {
             totalProducts+=ItemCart.qty;
         });

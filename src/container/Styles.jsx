@@ -1,6 +1,3 @@
-
-
-
 const StylesImg = {
     boxShadow: "3px 2px 5px rgb(9,6,6)",
     transition: "all 500ms",
@@ -9,23 +6,6 @@ const StylesImg = {
     "&:hover":{
         transform: "scale(1.1)",
     },
-}
-   
-
-
-const StyleNavBar = {
-    fontSize: "20px",
-    display: "flex",
-    textDecoration: 'none',
-    alignItems: "right",
-    justifyContent: "space-evenly",
-    backgroundColor: "Orange",
-    listStyle: "none",
-    height: "40px",
-}
-const StyleBanner = {
-    width: "100%",
-    height: "200px",
 }
 const StyleButton = {
     padding: '10px 20px',
@@ -44,7 +24,6 @@ const h2Styles = {
     fontFamily: 'Arial, Helvetica',
     fontSize:'20px',
     color: 'blue'
-
 }
 
-export {StylesImg, StyleNavBar, StyleBanner, StyleButton, h4Styles, h2Styles}
+export {StylesImg, StyleButton, h4Styles, h2Styles}

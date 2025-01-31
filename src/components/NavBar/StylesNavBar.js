@@ -20,6 +20,9 @@ const navbarTitleStyle = {
 
 // Estilo para el contenedor del input de búsqueda
 const containerInputStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "8px",
   flexGrow: 1,
   maxWidth: "500px",
 };

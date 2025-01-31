@@ -3,7 +3,7 @@ import { CartContext } from "../CartContext/CartContext"
 import { StylesImg } from "../../container/Styles"
 import { Link } from "react-router-dom"
 
-
+//AGREGARLE ESTILOS
 
 const Cart = () => {
     const {removeItem, clearCart, cartList, total} = useContext (CartContext)

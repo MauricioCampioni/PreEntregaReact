@@ -5,15 +5,6 @@ const cardGridContainerStyle = {
     padding: "20px",
   };
   
-  const cardItemStyle = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    backgroundColor: "#f8f8f8",
-    padding: "15px",
-    borderRadius: "8px",
-    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-  };
   
   const h4Styles = {
     fontSize: "1.2rem",
@@ -26,6 +17,7 @@ const cardGridContainerStyle = {
     height: "auto",
     borderRadius: "5px",
     objectFit: "cover",
+    
   };
   
   const StyleButton = {
@@ -38,5 +30,5 @@ const cardGridContainerStyle = {
     marginTop: "10px",
   };
 
-export {cardGridContainerStyle,cardItemStyle,h4Styles,StylesImg,StyleButton
+export {cardGridContainerStyle,h4Styles,StylesImg,StyleButton
   };

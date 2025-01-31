@@ -1,4 +1,4 @@
-
+import { useState } from 'react';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './container/ItemListContainer';
 import './App.css';
@@ -11,19 +11,17 @@ import Checkout from './components/Checkout/Checkout';
 
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <CartContextProvider>
     <div className="App">
-
-      
-
       <BrowserRouter>
       
-      <NavBar/>
+      <NavBar onSearch={setSearchTerm}/>
       
       <Routes>
-          <Route exact path='/' element = {<ItemListContainer greeting={""}/>} />
-          <Route exact path='/items' element = {<ItemListContainer greeting={"Bienvenidos a Mi Tienda"}/>} />
+          <Route exact path='/' element = {<ItemListContainer greeting={""} searchTerm={searchTerm}/>} />
+          <Route exact path='/items' element = {<ItemListContainer greeting={"Bienvenidos a Mi Tienda"} searchTerm= {searchTerm}/>}/>
           <Route exact path="category/:CategoryId" element={<ItemCategoryContainer/>}/>
           <Route exact path='items/:idItem' element= {<ItemDetailContainer/>}/>
           <Route exact path='/Cart' element= {<Cart/>}/>  

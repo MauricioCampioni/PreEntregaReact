@@ -1,15 +1,18 @@
 import Card from "../Card/Card";
-import { cardGridContainerStyle } from "../Card/CardStyles";
+import "../../container/Styles.css";
+
 
 const ItemList = ({productsStock}) => {
     return (
-        <div style={cardGridContainerStyle}>
+        
+            <div className="cardGridContainer">
                 {productsStock.map((product)=>(
-                    <div  key={product.id}>
+                    <div  key={product.id} className="cardItem">
                         <Card product={product}/>
                     </div>
                 ))}
-        </div>
+            </div>
+        
     )
 }
 export default ItemList;

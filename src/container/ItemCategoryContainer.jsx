@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { NavLink, useParams} from "react-router-dom";
-import {h4Styles, StylesImg, StyleButton, cardItemStyle } from "../components/Card/CardStyles";
+import {h4Styles, StylesImg, StyleButton} from "../components/Card/CardStyles";
+import "./Styles.css";
 import {getDocs, collection, query, where} from 'firebase/firestore'
 import { db } from "../services/firebase/firebaseConfig";
 
@@ -41,9 +42,9 @@ const ItemCategoryContainer =()=>{
             {loading ? 
             <h4>Cargando...</h4> :
             <>
-                 {
-                filteredProducts.map((product)=>(
-                    <div style={cardItemStyle} key={product.id}>
+            <div className="cardGridContainer">
+                {filteredProducts.map((product)=>(     
+                    <div className="cardItem" key={product.id}>
                         <h4 style={h4Styles}>{product.nombre}</h4>
                         <img style={StylesImg} src={product.img} alt="" />
                         <h4 style={h4Styles}>${product.precio}</h4>
@@ -51,9 +52,9 @@ const ItemCategoryContainer =()=>{
                         <p style={{color:"black"}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, fugiat.</p>
                     </div>
                 ))}
-                
-            </>}
             </div>
+        </>}
+    </div>
     )
 }
 export default ItemCategoryContainer

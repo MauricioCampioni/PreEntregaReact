@@ -1,19 +1,28 @@
 import React, { useState } from "react";
 import CartWidget from "../CartWidget/CartWidget";
-import {  Link } from "react-router-dom";
-import {navbarTitleStyle,containerInputStyle,searchInputStyle,navbarMenuStyle,navbarLinkStyle, navbarStyle} from './StylesNavBar';
+import { Link } from "react-router-dom";
+import {
+  navbarTitleStyle,
+  containerInputStyle,
+  searchInputStyle,
+  navbarMenuStyle,
+  navbarLinkStyle,
+  navbarStyle,
+} from "./StylesNavBar";
 import "./NavBar.css";
 
-const NavBar =({onSearch})=>{
-  const[searchInput, setSearchInput]= useState("");
+const NavBar = ({ onSearch }) => {
+  const [searchInput, setSearchInput] = useState("");
+  const [activeDropdown, setActiveDropdown] = useState(false);
 
+  // Manejo del input de búsqueda
   const handleInputChange = (e) => {
-    setSearchInput(e.target.value); // Actualiza el estado local
-    };
-  
+    setSearchInput(e.target.value);
+  };
+
   const handleSearch = () => {
-    if (searchInput.trim() !== ""){
-    onSearch(searchInput); // Actualiza el estado del componente padre
+    if (searchInput.trim() !== "") {
+      onSearch(searchInput);
     }
   };
 
@@ -27,16 +36,47 @@ const NavBar =({onSearch})=>{
     setSearchInput("");
     onSearch("");
   };
-    
 
-  const categorias =[{CategoriaId:1, nombreCategoria:"Hombre"},{CategoriaId:2, nombreCategoria:"Mujer"},{CategoriaId:3, nombreCategoria: "Niños"}];
-
+  // Categorías del menú desplegable
+  const submenuItems = {
+    destacados: ["Lanzamientos", "Los más elegidos"],
+    hombre: [
+      "Destacados de Hombre",
+      "Buzos",
+      "Remeras",
+      "Camisetas",
+      "Pantalones",
+      "Shorts",
+      "Zapatillas",
+      "Accesorios",
+    ],
+    mujer: [
+      "Destacados de Mujer",
+      "Buzos",
+      "Remeras",
+      "Camisetas",
+      "Pantalones",
+      "Shorts",
+      "Zapatillas",
+      "Accesorios",
+    ],
+    niños: [
+      "Destacados de Niños",
+      "Buzos",
+      "Remeras",
+      "Camisetas",
+      "Pantalones",
+      "Shorts",
+      "Zapatillas",
+      "Accesorios",
+    ],
+  };
   return (
     <header>
       <nav style={navbarStyle}>
         {/* Título de la tienda */}
         <Link to="/" style={navbarTitleStyle} onClick={handleResetSearch}>
-          Mi tienda
+          Mi Tienda
         </Link>
 
         {/* Barra de búsqueda */}
@@ -47,30 +87,99 @@ const NavBar =({onSearch})=>{
             placeholder="Buscar..."
             value={searchInput}
             onChange={handleInputChange}
-            onKeyDown={handleKeyDown} //Muestra el valor del input
+            onKeyDown={handleKeyDown}
           />
-          <button onClick={handleSearch} style={{marginLeft: "10px", padding: "5px 10px", cursor: "pointer"}}>
+          <button
+            onClick={handleSearch}
+            style={{ marginLeft: "10px", padding: "5px 10px", cursor: "pointer" }}
+          >
             🔍
           </button>
         </div>
 
-        {/* Enlaces de categorías */}
+        {/* Menu de navegacion */}
         <ul style={navbarMenuStyle}>
-          <li key="Inicio">
-            <Link to="/" style={navbarLinkStyle}>
-              Inicio
-            </Link>
+          {/* Destacados con submenú */}
+          <li
+            onMouseEnter={() => setActiveDropdown("destacados")}
+            onMouseLeave={() => setActiveDropdown(null)}
+            style={{ position: "relative", cursor: "pointer" }}
+          >
+            <span style={navbarLinkStyle}>Destacados</span>
+            {activeDropdown === "destacados" && (
+              <ul className="submenu">
+                {submenuItems.destacados.map((item, index) => (
+                  <li key={index}>
+                    <Link to="/" className="submenu-link">
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
-          {categorias.map((categoria) => (
-            <li key={categoria.CategoriaId}>
-              <Link
-                to={`category/${categoria.CategoriaId}`}
-                style={navbarLinkStyle}
-              >
-                {categoria.nombreCategoria}
-              </Link>
-            </li>
-          ))}
+
+          {/* Hombre con submenú */}
+          <li
+            onMouseEnter={() => setActiveDropdown("hombre")}
+            onMouseLeave={() => setActiveDropdown(null)}
+            style={{ position: "relative", cursor: "pointer" }}
+          >
+            <span style={navbarLinkStyle}>Hombre</span>
+            {activeDropdown === "hombre" && (
+              <ul className="submenu">
+                {submenuItems.hombre.map((item, index) => (
+                  <li key={index}>
+                    <Link to="/" className="submenu-link">
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+
+          {/* Mujer con submenú */}
+          <li
+            onMouseEnter={() => setActiveDropdown("mujer")}
+            onMouseLeave={() => setActiveDropdown(null)}
+            style={{ position: "relative", cursor: "pointer" }}
+          >
+            <span style={navbarLinkStyle}>Mujer</span>
+            {activeDropdown === "mujer" && (
+              <ul className="submenu">
+                {submenuItems.mujer.map((item, index) => (
+                  <li key={index}>
+                    <Link to="/" className="submenu-link">
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+
+          {/* Niños con submenú */}
+          <li
+            onMouseEnter={() => setActiveDropdown("niños")}
+            onMouseLeave={() => setActiveDropdown(null)}
+            style={{ position: "relative", cursor: "pointer" }}
+          >
+            <span style={navbarLinkStyle}>Niños</span>
+            {activeDropdown === "niños" && (
+              <ul className="submenu">
+                {submenuItems.niños.map((item, index) => (
+                  <li key={index}>
+                    <Link to="/" className="submenu-link">
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+
+          {/* Carrito */}
           <CartWidget />
         </ul>
       </nav>

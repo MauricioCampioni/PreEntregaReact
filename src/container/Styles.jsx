@@ -16,9 +16,11 @@ const StyleButton = {
     fontSize: '20px',
     cursor: 'pointer'
 }
-const h4Styles = {
+const h3Styles = {
     fontFamily: 'Arial, Helvetica',
-    fontSize:'20px'
+    fontSize:'20px',
+    padding: "250px"
+
 }
 const h2Styles = {
     fontFamily: 'Arial, Helvetica',
@@ -26,4 +28,4 @@ const h2Styles = {
     color: 'blue'
 }
 
-export {StylesImg, StyleButton, h4Styles, h2Styles}
+export {StylesImg, StyleButton, h3Styles, h2Styles}

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { NavLink, useParams} from "react-router-dom";
 import {h4Styles, StylesImg, StyleButton} from "../components/Card/CardStyles";
 import "./Styles.css";
+import {h3Styles } from './Styles';
 import {getDocs, collection, query, where} from 'firebase/firestore'
 import { db } from "../services/firebase/firebaseConfig";
 
@@ -40,7 +41,7 @@ const ItemCategoryContainer =()=>{
     return (
         <div>
             {loading ? 
-            <h4>Cargando...</h4> :
+            <h3 style={h3Styles} >Cargando...</h3> :
             <>
             <div className="cardGridContainer">
                 {filteredProducts.map((product)=>(     

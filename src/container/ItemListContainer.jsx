@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {getDocs, collection} from 'firebase/firestore'
 import { db } from '../services/firebase/firebaseConfig';
 import ItemList from '../components/ItemList/ItemList';
-import { h2Styles } from './Styles';
+import { h2Styles, h3Styles } from './Styles';
 import "./Styles.css";
 
 
@@ -44,7 +44,7 @@ const ItemListContainer =({greeting, searchTerm})=>{
     return (                     
         <div>
             {loading ? 
-            <h4>Cargando...</h4> : 
+            <h3 style={h3Styles}>Cargando...</h3> : 
             <>
             <h2 style={h2Styles}>{greeting}</h2>
             <ItemList productsStock={filteredProducts} />
